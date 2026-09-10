@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { loadDIDAgent } from '../utils/loadDIDAgent';
 
 // Hero box content types
 type BoxContent = {
@@ -140,6 +141,11 @@ const HeroSection = () => {
       Array(cols).fill(null).map(() => bgColors[0])
     );
     setGridColors(initialGrid);
+  }, []);
+
+  // Load D-ID agent on mount
+  useEffect(() => {
+    loadDIDAgent();
   }, []);
 
   // Random color changes
