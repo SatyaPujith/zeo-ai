@@ -371,7 +371,22 @@ const HeroSection = () => {
             >
               <div className="w-full aspect-square max-w-[500px] bg-white rounded-2xl overflow-hidden shadow-xl border border-stone-200 flex items-center justify-center relative">
                 {/* The D-ID agent will mount here */}
-                <div id="zeo-agent-container" className="w-full h-full"></div>
+                <div 
+                  id="zeo-agent-container" 
+                  className="w-full h-full"
+                  style={{ minHeight: '400px' }}
+                >
+                  {/* Fallback content if agent doesn't load */}
+                  <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center">
+                    <div className="w-20 h-20 bg-[#f5f1e6] rounded-full flex items-center justify-center mb-4">
+                      <span className="text-3xl">🩺</span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-[#1c1c1c] mb-2">AI Doctor Loading...</h3>
+                    <p className="text-sm text-stone-600 max-w-xs">
+                      Your medical assistant will appear here. Please ensure you've whitelisted this domain in your D-ID settings.
+                    </p>
+                  </div>
+                </div>
               </div>
               <p className="text-xs text-stone-500 mt-6 font-mono tracking-widest uppercase font-bold">Zeo.ai Live Medical Agent</p>
             </div>

@@ -9,14 +9,35 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script type="module"
+    
+    <!-- D-ID Agent Script -->
+    <script 
+      type="module"
       src="https://agent.d-id.com/v2/index.js"
       data-mode="full"
       data-client-key="ck_N5juQRcRyzzFD0bYiDTjL"
       data-agent-id="v2_agt_epcSRxQ1"
       data-name="did-agent"
       data-monitor="true"
-      data-target-id="zeo-agent-container">
+      data-target-id="zeo-agent-container"
+      onload="console.log('D-ID script loaded successfully')"
+      onerror="console.error('Failed to load D-ID script')"
+    >
+    </script>
+    
+    <!-- Verify D-ID loads -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const container = document.getElementById('zeo-agent-container');
+          if (container) {
+            console.log('D-ID container found:', container);
+            console.log('Container children:', container.children.length);
+          } else {
+            console.error('D-ID container NOT found');
+          }
+        }, 3000);
+      });
     </script>
   </body>
 </html>
