@@ -367,34 +367,33 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* CENTER - Agent Display */}
-            <div className="col-span-1 lg:col-span-4 border border-stone-300 border-dotted flex flex-col items-center justify-center p-6 md:p-8 bg-transparent relative"
+            {/* CENTER - About Text */}
+            <div className="col-span-1 lg:col-span-4 border border-stone-300 border-dotted flex flex-col items-center justify-center p-8 md:p-12 bg-transparent relative"
               style={{ 
                 backgroundImage: 'radial-gradient(#c8c5b9 1.5px, transparent 1.5px)', 
                 backgroundSize: '24px 24px',
                 backgroundColor: '#f5f1e6'
               }}
             >
-              <div className="w-full aspect-square max-w-[500px] bg-white rounded-2xl overflow-hidden shadow-xl border border-stone-200 flex items-center justify-center relative">
-                {/* The D-ID agent will mount here */}
-                <div 
-                  id="zeo-agent-container" 
-                  className="w-full h-full"
-                  style={{ minHeight: '400px' }}
+              <div className="max-w-xl text-center">
+                <motion.h2 
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1c1c1c] mb-6"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6 }}
                 >
-                  {/* Fallback content if agent doesn't load */}
-                  <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center">
-                    <div className="w-20 h-20 bg-[#f5f1e6] rounded-full flex items-center justify-center mb-4">
-                      <span className="text-3xl">🩺</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-[#1c1c1c] mb-2">AI Doctor Loading...</h3>
-                    <p className="text-sm text-stone-600 max-w-xs">
-                      Your medical assistant will appear here. Please ensure you've whitelisted this domain in your D-ID settings.
-                    </p>
-                  </div>
-                </div>
+                  Your AI Doctor, Always Available
+                </motion.h2>
+                
+                <motion.p 
+                  className="text-base md:text-lg text-stone-700 leading-relaxed"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  Talk to an AI medical assistant through live video. Get instant health guidance, symptom analysis, and medication advice anytime.
+                </motion.p>
               </div>
-              <p className="text-xs text-stone-500 mt-6 font-mono tracking-widest uppercase font-bold">Zeo.ai Live Medical Agent</p>
             </div>
 
             {/* RIGHT COLUMN - 3x2 Grid */}
@@ -605,12 +604,6 @@ const HeroSection = () => {
         }
         .animate-scroll-features {
           animation: scroll-features 25s linear infinite;
-        }
-        
-        /* Ensure the D-ID agent takes full height/width of its container */
-        #zeo-agent-container > * {
-          width: 100% !important;
-          height: 100% !important;
         }
       `}</style>
     </>

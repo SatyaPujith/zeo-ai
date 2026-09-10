@@ -1,5 +1,6 @@
 /**
  * Dynamically loads the D-ID agent script with credentials from environment variables
+ * Uses "fabio" mode - floating widget on the right side of the screen
  */
 export function loadDIDAgent() {
   const clientKey = import.meta.env.VITE_DID_CLIENT_KEY;
@@ -21,15 +22,17 @@ export function loadDIDAgent() {
   const script = document.createElement('script');
   script.type = 'module';
   script.src = 'https://agent.d-id.com/v2/index.js';
-  script.setAttribute('data-mode', 'full');
+  script.setAttribute('data-mode', 'fabio'); // Floating widget mode
   script.setAttribute('data-client-key', clientKey);
   script.setAttribute('data-agent-id', agentId);
   script.setAttribute('data-name', 'did-agent');
   script.setAttribute('data-monitor', 'true');
-  script.setAttribute('data-target-id', 'zeo-agent-container');
+  script.setAttribute('data-orientation', 'horizontal');
+  script.setAttribute('data-position', 'right');
+  script.setAttribute('data-open-mode', 'expanded');
 
   script.onload = () => {
-    console.log('D-ID agent script loaded successfully');
+    console.log('D-ID agent script loaded successfully in fabio mode');
   };
 
   script.onerror = () => {
@@ -39,5 +42,5 @@ export function loadDIDAgent() {
   // Append to document head
   document.head.appendChild(script);
 
-  console.log('D-ID agent script initialized with credentials from env');
+  console.log('D-ID agent script initialized with credentials from env (fabio mode)');
 }
