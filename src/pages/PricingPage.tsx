@@ -65,56 +65,49 @@ const pricingTiers: PricingTier[] = [
 
 const featureCategories = [
   {
-    name: 'Workspace',
+    name: 'Consultations',
     features: [
-      { name: 'Seats', free: 'Up to 2', grow: 'Up to 10', scale: 'Custom' },
-      { name: 'Workspaces', free: 'Up to 2', grow: 'Up to 10', scale: 'Custom' },
-      { name: 'Projects / Workspace', free: 'Up to 5', grow: 'Up to 25', scale: 'Custom' },
+      { name: 'Video calls per month', free: 'Up to 5', grow: 'Unlimited', scale: 'Unlimited' },
+      { name: 'Chat consultations', free: '✓', grow: '✓', scale: '✓' },
+      { name: 'Voice consultations', free: '✓', grow: '✓', scale: '✓' },
+      { name: 'Emergency access', free: '—', grow: '—', scale: '✓' },
     ],
   },
   {
-    name: 'Iterate',
+    name: 'Medical Features',
     features: [
-      { name: 'Teamsync', free: 'Shared & Private', grow: 'Shared & Private', scale: 'Custom' },
-      { name: 'Collaborative Evaluations', free: '✓', grow: '✓', scale: '✓' },
-      { name: 'Prompt Management', free: '✓', grow: '✓', scale: '✓' },
-      { name: 'Automatic Version History', free: '✓', grow: '✓', scale: '✓' },
-      { name: 'Multi-modal Playground', free: '✓', grow: '✓', scale: '✓' },
+      { name: 'Symptom analysis', free: '✓', grow: '✓', scale: '✓' },
+      { name: 'Visual diagnosis', free: '—', grow: '✓', scale: '✓' },
+      { name: 'Medicine information', free: '✓', grow: '✓', scale: '✓' },
+      { name: 'Lab results interpretation', free: '—', grow: '✓', scale: '✓' },
+      { name: 'Personalized care plans', free: '—', grow: '✓', scale: '✓' },
     ],
   },
   {
-    name: 'Evaluate',
+    name: 'Health Records',
     features: [
-      { name: 'Evaluators / Prompt', free: 'Up to 3', grow: 'Up to 10', scale: 'Custom' },
-      { name: 'LLM-as-judge Evaluations', free: '1,000 evals/mo', grow: '10,000 evals/mo', scale: 'Custom' },
-      { name: 'Multi-script Evaluations', free: '✓', grow: '✓', scale: '✓' },
-      { name: 'Custom Evaluators', free: 'Up to 5', grow: 'Up to 25', scale: 'Custom' },
+      { name: 'Health history tracking', free: 'Basic', grow: 'Complete', scale: 'Complete' },
+      { name: 'Medical records storage', free: 'Up to 10', grow: 'Unlimited', scale: 'Unlimited' },
+      { name: 'Family member profiles', free: '—', grow: '—', scale: 'Up to 5' },
+      { name: 'Prescription management', free: '—', grow: '—', scale: '✓' },
     ],
   },
   {
-    name: 'Deploy',
+    name: 'Advanced Care',
     features: [
-      { name: 'Environments / Project', free: 'Up to 1', grow: 'Up to 3', scale: 'Custom' },
-      { name: 'Deployments / Prompt', free: '10,000 evals/mo', grow: '100,000 evals/mo', scale: 'Custom' },
-      { name: 'Custom Edge Nodes', free: '—', grow: '✓', scale: '✓' },
+      { name: 'Specialist consultations', free: '—', grow: 'Add-on', scale: '✓' },
+      { name: 'Mental health support', free: '—', grow: 'Add-on', scale: '✓' },
+      { name: 'Chronic condition monitoring', free: '—', grow: '✓', scale: '✓' },
+      { name: 'Wellness programs', free: '—', grow: '✓', scale: '✓' },
     ],
   },
   {
-    name: 'Monitor',
+    name: 'Support & Security',
     features: [
-      { name: 'Logs', free: '1,000 logs/min', grow: '10,000 logs/min', scale: 'Custom' },
-      { name: 'Multi-modal Traces & Spans', free: '✓', grow: '✓', scale: '✓' },
-      { name: 'Analytics', free: '✓', grow: '✓', scale: '✓' },
-      { name: 'Alerts', free: 'Standard', grow: 'Standard', scale: 'Custom' },
-    ],
-  },
-  {
-    name: 'Support',
-    features: [
-      { name: 'Community', free: '✓', grow: '✓', scale: '✓' },
-      { name: 'Email', free: '✓', grow: '✓', scale: '✓' },
-      { name: 'Chat', free: '—', grow: '✓', scale: '✓' },
-      { name: 'Dedicated Slack/Teams channel', free: '—', grow: 'Add-on', scale: '✓' },
+      { name: 'Response time', free: '24 hours', grow: '2 hours', scale: 'Priority' },
+      { name: 'HIPAA compliance', free: '✓', grow: '✓', scale: '✓' },
+      { name: 'Data encryption', free: '✓', grow: '✓', scale: '✓' },
+      { name: 'Dedicated support', free: '—', grow: 'Email', scale: '24/7 Phone' },
     ],
   },
 ];
@@ -136,7 +129,7 @@ const PricingPage = () => {
               transition={{ duration: 0.5 }}
               className="text-4xl sm:text-5xl font-medium tracking-tight text-foreground mb-4"
             >
-              The end-to-end platform that world class teams use to build AI applications
+              Healthcare plans for individuals and families
             </motion.h1>
             
             {/* Billing Toggle */}
@@ -231,9 +224,9 @@ const PricingPage = () => {
               {/* Table Header */}
               <div className="grid grid-cols-4 gap-4 p-4 bg-muted border-b border-border">
                 <div className="text-sm font-medium text-muted-foreground">Features</div>
-                <div className="text-sm font-medium text-center text-muted-foreground">Free</div>
-                <div className="text-sm font-medium text-center text-muted-foreground">Grow</div>
-                <div className="text-sm font-medium text-center text-muted-foreground">Scale</div>
+                <div className="text-sm font-medium text-center text-muted-foreground">Basic Care</div>
+                <div className="text-sm font-medium text-center text-muted-foreground">Premium Care</div>
+                <div className="text-sm font-medium text-center text-muted-foreground">Family Plan</div>
               </div>
               
               {/* Table Body */}

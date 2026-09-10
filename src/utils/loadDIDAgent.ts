@@ -29,7 +29,7 @@ export function loadDIDAgent() {
   script.setAttribute('data-monitor', 'true');
   script.setAttribute('data-orientation', 'horizontal');
   script.setAttribute('data-position', 'right');
-  script.setAttribute('data-open-mode', 'expanded');
+  script.setAttribute('data-open-mode', 'compact');
 
   script.onload = () => {
     console.log('D-ID agent script loaded successfully in fabio mode');
